@@ -1,0 +1,250 @@
+﻿Private Rental Market Statistics ,,,,,,
+Table 1.2: Summary of monthly rents recorded between January 2019 and December 2019 by borough and bedroom category for London,,,,,,
+,,,,,,
+,,,,,,
+"These statistics are not comparable with theOffice for National Statistics’ Official Statistics releases on the private rental market. Both use the Valuation Office Agency's data collected by Rent Officers from landlords and letting agents, however, the sample and methodology used to produce the figures is not the same.",,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+Table notes and footnotes,,,Back to contents,,,
+,,,,,,
+Borough,Bedroom Category,Count of rents,Mean,Lower quartile,Median,Upper quartile
+Barking and Dagenham,Room,20,482,392,492,542
+Barking and Dagenham,Studio,20,742,700,731,800
+Barking and Dagenham,One Bedroom,220,984,900,"1,000","1,050"
+Barking and Dagenham,Two Bedrooms,380,"1,190","1,100","1,200","1,285"
+Barking and Dagenham,Three Bedrooms,260,"1,428","1,350","1,400","1,550"
+Barking and Dagenham,Four or More Bedrooms,40,"1,653","1,500","1,650","1,850"
+Barnet,Room,20,544,492,542,595
+Barnet,Studio,110,864,778,850,950
+Barnet,One Bedroom,400,"1,149","1,050","1,150","1,250"
+Barnet,Two Bedrooms,770,"1,388","1,250","1,365","1,500"
+Barnet,Three Bedrooms,280,"1,757","1,600","1,750","1,900"
+Barnet,Four or More Bedrooms,150,"2,463","2,000","2,250","2,574"
+Bexley,Room,10,428,375,392,492
+Bexley,Studio,30,665,600,695,710
+Bexley,One Bedroom,140,843,755,875,950
+Bexley,Two Bedrooms,290,"1,111","1,000","1,100","1,200"
+Bexley,Three Bedrooms,170,"1,288","1,150","1,300","1,400"
+Bexley,Four or More Bedrooms,70,"1,592","1,339","1,600","1,750"
+Brent,Room,50,593,500,600,650
+Brent,Studio,90,894,788,875,"1,000"
+Brent,One Bedroom,210,"1,151","1,050","1,150","1,250"
+Brent,Two Bedrooms,420,"1,382","1,257","1,350","1,495"
+Brent,Three Bedrooms,330,"1,753","1,600","1,700","1,850"
+Brent,Four or More Bedrooms,170,"2,143","1,900","2,000","2,350"
+Bromley,Room,20,516,442,495,592
+Bromley,Studio,70,762,700,750,825
+Bromley,One Bedroom,660,974,900,965,"1,050"
+Bromley,Two Bedrooms,"1,160","1,219","1,100","1,200","1,300"
+Bromley,Three Bedrooms,560,"1,534","1,350","1,500","1,700"
+Bromley,Four or More Bedrooms,330,"2,270","1,750","2,000","2,500"
+Camden,Room,70,940,765,882,"1,109"
+Camden,Studio,40,"1,158","1,000","1,100","1,250"
+Camden,One Bedroom,190,"1,808","1,557","1,798","2,037"
+Camden,Two Bedrooms,220,"2,325","1,950","2,310","2,817"
+Camden,Three Bedrooms,90,"3,073","2,058","2,817","3,792"
+Camden,Four or More Bedrooms,40,"4,189","2,383","3,300","4,767"
+City of London,Room,0,.,.,.,.
+City of London,Studio,10,"1,599","1,250","1,408","1,560"
+City of London,One Bedroom,20,"1,952","1,625","1,798","2,167"
+City of London,Two Bedrooms,20,"2,745","2,134","2,600","2,817"
+City of London,Three Bedrooms,-,..,..,..,..
+City of London,Four or More Bedrooms,-,..,..,..,..
+Croydon,Room,120,499,417,492,585
+Croydon,Studio,160,725,676,728,781
+Croydon,One Bedroom,780,943,875,925,"1,000"
+Croydon,Two Bedrooms,940,"1,197","1,100","1,200","1,275"
+Croydon,Three Bedrooms,340,"1,419","1,300","1,420","1,550"
+Croydon,Four or More Bedrooms,150,"1,910","1,660","1,825","2,000"
+Ealing,Room,40,740,528,645,800
+Ealing,Studio,70,904,800,900,985
+Ealing,One Bedroom,340,"1,198","1,100","1,239","1,300"
+Ealing,Two Bedrooms,480,"1,459","1,300","1,446","1,600"
+Ealing,Three Bedrooms,210,"1,739","1,500","1,650","1,900"
+Ealing,Four or More Bedrooms,140,"2,625","2,100","2,400","2,847"
+Enfield,Room,40,544,442,492,586
+Enfield,Studio,70,825,750,843,893
+Enfield,One Bedroom,180,"1,032",950,"1,005","1,100"
+Enfield,Two Bedrooms,320,"1,307","1,200","1,300","1,400"
+Enfield,Three Bedrooms,140,"1,674","1,475","1,598","1,700"
+Enfield,Four or More Bedrooms,70,"2,274","1,750","2,000","2,250"
+Greenwich,Room,30,659,508,646,788
+Greenwich,Studio,60,983,800,900,"1,150"
+Greenwich,One Bedroom,450,"1,215","1,000","1,250","1,375"
+Greenwich,Two Bedrooms,770,"1,470","1,230","1,400","1,675"
+Greenwich,Three Bedrooms,340,"1,765","1,400","1,602","2,027"
+Greenwich,Four or More Bedrooms,110,"2,252","1,650","2,000","2,600"
+Hackney,Room,30,641,542,635,675
+Hackney,Studio,60,"1,192",978,"1,083","1,213"
+Hackney,One Bedroom,400,"1,477","1,256","1,430","1,625"
+Hackney,Two Bedrooms,460,"1,791","1,500","1,690","2,043"
+Hackney,Three Bedrooms,170,"2,507","2,060","2,362","2,947"
+Hackney,Four or More Bedrooms,40,"3,028","2,600","3,077","3,345"
+Hammersmith and Fulham,Room,20,703,600,620,802
+Hammersmith and Fulham,Studio,100,"1,096",950,"1,100","1,200"
+Hammersmith and Fulham,One Bedroom,650,"1,436","1,278","1,408","1,550"
+Hammersmith and Fulham,Two Bedrooms,580,"1,902","1,600","1,798","2,058"
+Hammersmith and Fulham,Three Bedrooms,200,"2,534","2,167","2,492","2,852"
+Hammersmith and Fulham,Four or More Bedrooms,170,"4,656","3,461","4,004","5,361"
+Haringey,Room,40,612,537,592,675
+Haringey,Studio,110,900,789,910,"1,000"
+Haringey,One Bedroom,310,"1,279","1,200","1,275","1,350"
+Haringey,Two Bedrooms,470,"1,601","1,400","1,532","1,719"
+Haringey,Three Bedrooms,170,"2,030","1,733","1,940","2,167"
+Haringey,Four or More Bedrooms,100,"2,586","1,847","2,398","3,039"
+Harrow,Room,40,570,496,531,696
+Harrow,Studio,70,898,750,873,"1,050"
+Harrow,One Bedroom,190,"1,081",950,"1,050","1,230"
+Harrow,Two Bedrooms,320,"1,315","1,200","1,300","1,400"
+Harrow,Three Bedrooms,330,"1,622","1,500","1,600","1,748"
+Harrow,Four or More Bedrooms,120,"2,046","1,800","1,950","2,200"
+Havering,Room,30,497,354,542,617
+Havering,Studio,10,660,600,675,700
+Havering,One Bedroom,210,882,800,875,950
+Havering,Two Bedrooms,370,"1,110","1,000","1,100","1,200"
+Havering,Three Bedrooms,310,"1,370","1,300","1,350","1,450"
+Havering,Four or More Bedrooms,60,"1,758","1,500","1,700","1,800"
+Hillingdon,Room,80,625,492,585,642
+Hillingdon,Studio,70,736,675,700,800
+Hillingdon,One Bedroom,160,969,900,975,"1,050"
+Hillingdon,Two Bedrooms,280,"1,244","1,125","1,250","1,325"
+Hillingdon,Three Bedrooms,190,"1,411","1,250","1,400","1,550"
+Hillingdon,Four or More Bedrooms,90,"2,075","1,700","1,900","2,250"
+Hounslow,Room,30,887,532,600,750
+Hounslow,Studio,60,794,702,751,900
+Hounslow,One Bedroom,290,"1,168",975,"1,100","1,345"
+Hounslow,Two Bedrooms,440,"1,391","1,200","1,300","1,500"
+Hounslow,Three Bedrooms,170,"1,685","1,425","1,550","1,700"
+Hounslow,Four or More Bedrooms,90,"2,934","1,750","2,100","4,029"
+Islington,Room,20,719,614,722,830
+Islington,Studio,30,"1,150",950,"1,105","1,317"
+Islington,One Bedroom,200,"1,608","1,350","1,517","1,831"
+Islington,Two Bedrooms,220,"2,093","1,670","1,918","2,492"
+Islington,Three Bedrooms,60,"2,451","2,158","2,295","2,600"
+Islington,Four or More Bedrooms,30,"3,200","2,535","2,999","3,467"
+Kensington and Chelsea,Room,30,857,702,825,960
+Kensington and Chelsea,Studio,210,"1,387","1,150","1,350","1,625"
+Kensington and Chelsea,One Bedroom,780,"2,037","1,712","1,950","2,275"
+Kensington and Chelsea,Two Bedrooms,890,"3,204","2,320","2,817","3,467"
+Kensington and Chelsea,Three Bedrooms,200,"4,738","3,445","4,312","5,612"
+Kensington and Chelsea,Four or More Bedrooms,110,"7,969","4,983","6,500","10,833"
+Kingston upon Thames,Room,90,532,500,508,542
+Kingston upon Thames,Studio,50,849,800,850,920
+Kingston upon Thames,One Bedroom,300,"1,076",995,"1,050","1,170"
+Kingston upon Thames,Two Bedrooms,500,"1,361","1,250","1,325","1,450"
+Kingston upon Thames,Three Bedrooms,160,"1,649","1,468","1,608","1,798"
+Kingston upon Thames,Four or More Bedrooms,80,"2,679","1,995","2,350","2,750"
+Lambeth,Room,10,548,457,557,612
+Lambeth,Studio,60,"1,012",823,926,"1,150"
+Lambeth,One Bedroom,380,"1,415","1,200","1,400","1,550"
+Lambeth,Two Bedrooms,570,"1,660","1,400","1,643","1,850"
+Lambeth,Three Bedrooms,210,"2,226","1,750","2,200","2,535"
+Lambeth,Four or More Bedrooms,90,"2,904","2,400","2,875","3,350"
+Lewisham,Room,150,622,542,644,692
+Lewisham,Studio,130,880,800,850,950
+Lewisham,One Bedroom,690,"1,102",975,"1,100","1,200"
+Lewisham,Two Bedrooms,930,"1,324","1,200","1,300","1,450"
+Lewisham,Three Bedrooms,380,"1,635","1,450","1,600","1,800"
+Lewisham,Four or More Bedrooms,140,"2,322","1,950","2,250","2,575"
+Merton,Room,20,587,492,550,675
+Merton,Studio,20,898,794,900,"1,000"
+Merton,One Bedroom,270,"1,238","1,100","1,250","1,350"
+Merton,Two Bedrooms,380,"1,473","1,276","1,400","1,600"
+Merton,Three Bedrooms,150,"1,816","1,550","1,750","2,000"
+Merton,Four or More Bedrooms,120,"2,630","2,000","2,500","2,995"
+Newham,Room,80,549,442,531,626
+Newham,Studio,30,993,825,975,"1,278"
+Newham,One Bedroom,420,"1,167","1,050","1,148","1,300"
+Newham,Two Bedrooms,640,"1,462","1,300","1,400","1,600"
+Newham,Three Bedrooms,320,"1,685","1,500","1,650","1,800"
+Newham,Four or More Bedrooms,140,"2,045","1,850","1,950","2,200"
+Redbridge,Room,60,605,482,592,692
+Redbridge,Studio,50,748,681,750,800
+Redbridge,One Bedroom,430,"1,015",900,"1,000","1,100"
+Redbridge,Two Bedrooms,680,"1,280","1,160","1,275","1,375"
+Redbridge,Three Bedrooms,370,"1,571","1,450","1,575","1,675"
+Redbridge,Four or More Bedrooms,160,"2,169","1,800","2,070","2,400"
+Richmond upon Thames,Room,-,..,..,..,..
+Richmond upon Thames,Studio,70,"1,001",850,975,"1,127"
+Richmond upon Thames,One Bedroom,370,"1,294","1,150","1,260","1,400"
+Richmond upon Thames,Two Bedrooms,640,"1,733","1,450","1,650","1,895"
+Richmond upon Thames,Three Bedrooms,280,"2,350","1,750","2,200","2,750"
+Richmond upon Thames,Four or More Bedrooms,190,"4,048","2,875","3,500","4,600"
+Southwark,Room,40,652,550,642,781
+Southwark,Studio,60,"1,076",926,"1,025","1,235"
+Southwark,One Bedroom,660,"1,434","1,225","1,350","1,610"
+Southwark,Two Bedrooms,870,"1,797","1,480","1,650","1,950"
+Southwark,Three Bedrooms,240,"2,101","1,800","2,100","2,340"
+Southwark,Four or More Bedrooms,100,"2,697","2,383","2,600","3,000"
+Sutton,Room,20,534,472,530,600
+Sutton,Studio,50,767,713,750,825
+Sutton,One Bedroom,360,933,875,925,970
+Sutton,Two Bedrooms,410,"1,184","1,100","1,195","1,250"
+Sutton,Three Bedrooms,130,"1,520","1,400","1,500","1,625"
+Sutton,Four or More Bedrooms,70,"1,954","1,700","1,850","2,100"
+Tower Hamlets,Room,60,682,592,678,750
+Tower Hamlets,Studio,110,"1,376","1,192","1,365","1,452"
+Tower Hamlets,One Bedroom,520,"1,490","1,300","1,420","1,647"
+Tower Hamlets,Two Bedrooms,610,"1,891","1,597","1,733","2,054"
+Tower Hamlets,Three Bedrooms,230,"2,277","1,950","2,106","2,400"
+Tower Hamlets,Four or More Bedrooms,70,"2,850","2,507","2,704","3,038"
+Waltham Forest,Room,70,529,442,542,610
+Waltham Forest,Studio,70,802,701,825,900
+Waltham Forest,One Bedroom,460,"1,069","1,000","1,050","1,150"
+Waltham Forest,Two Bedrooms,720,"1,308","1,200","1,300","1,400"
+Waltham Forest,Three Bedrooms,310,"1,631","1,500","1,625","1,750"
+Waltham Forest,Four or More Bedrooms,140,"2,051","1,850","2,000","2,200"
+Wandsworth,Room,10,612,542,625,700
+Wandsworth,Studio,50,"1,056",926,"1,025","1,150"
+Wandsworth,One Bedroom,670,"1,412","1,295","1,400","1,517"
+Wandsworth,Two Bedrooms,"1,160","1,761","1,517","1,700","1,950"
+Wandsworth,Three Bedrooms,440,"2,285","1,900","2,250","2,600"
+Wandsworth,Four or More Bedrooms,300,"3,135","2,600","3,050","3,500"
+Westminster,Room,10,"1,539",750,845,904
+Westminster,Studio,100,"1,469","1,278","1,473","1,712"
+Westminster,One Bedroom,510,"2,105","1,650","1,950","2,470"
+Westminster,Two Bedrooms,560,"3,020","2,210","2,708","3,467"
+Westminster,Three Bedrooms,200,"4,790","3,250","4,008","4,983"
+Westminster,Four or More Bedrooms,50,"8,832","4,333","6,434","12,567"
+Source: VOA’s administrative database as at December 2019,,,,,,
+,,,,,,
+Table notes,,,,,,
+All averages and measures are expressed in £ values and rounded to the nearest £1.,,,,,,
+Counts are rounded to the nearest 10.,,,,,,
+Statistics derived from fewer than five observations have been suppressed and denoted by '-'.,,,,,,
+Values denoted by '.'  are not applicable.,,,,,,
+Values denoted by '..' are not available.,,,,,,
+,,,,,,
+Please note,,,,,,
+The sample used to produce these statistics is not statistical and may not be consistent over time as such these data should not be compared across time periods or between areas.,,,,,,
+,,,,,,
+,,,,,,
+Housing Benefit claimants are not included in the sample.,,,,,,
+,,,,,,
+"Room - non self-contained single room with shared facilities. Includes bedsits, single rooms in a house or flat shared with other tenants, and single rooms rented from a resident landlord.",,,,,,
+,,,,,,
+Studio - self-contained single roomed property with own kitchen and bath/shower/WC facilities.,,,,,,
+,,,,,,
+"One Bedroom - self-contained properties with one bedroom including houses, bungalows, flats and maisonettes.",,,,,,
+,,,,,,
+"Two Bedrooms - self-contained properties with two bedrooms including houses, bungalows, flats and maisonettes.",,,,,,
+,,,,,,
+"Three Bedrooms - self-contained properties with three bedrooms including houses, bungalows, flats and maisonettes.",,,,,,
+,,,,,,
+"Four or more Bedrooms - self-contained properties with four or more bedrooms including houses, bungalows, flats and maisonettes.",,,,,,
+,,,,,,
+Mean - a measure of central tendency often referred to as the average. Given a series of values the arithmetic mean is calculated by summing all these values together and dividing by the count of these values.,,,,,,
+,,,,,,
+,,,,,,
+Median - when a series of numbers are arranged by order of magnitude the median represents the middle value. Where there is an even number of values the median is the mean of the two values closest to value in the centre of that distribution.,,,,,,
+,,,,,,
+,,,,,,
+Lower quartile - when a series of values are arranged by size the lower quartile (or 25th percentile) is the value that splits the lowest 25 per cent of the data from the highest 75 per cent.,,,,,,
+,,,,,,
+Upper quartile - when a series of values are arranged by size the upper quartile (or 75th percentile) is the value that splits the highest 25 per cent of the data from the lowest 75 per cent.,,,,,,
+,,,,,,
+,,,,,,
+Back to Top,,,,,,
