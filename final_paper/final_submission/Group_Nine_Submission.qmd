@@ -169,29 +169,27 @@ Are there any areas on which you would appreciate more detailed feedback if we'r
 
 ## 1. Who collected the data?
 
-Inside Airbnb (IA) is a website founded by Murray Cox. It provides direct access to data gathered from Airbnb's website. Inside Airbnb has various partners and benefits from the guidance of an advisory board, which helps ensure the sustainability of the project [@zotero-49].
+Inside Airbnb (IA) is a website founded by Murray Cox. It provides direct access to data from Airbnb's website. Inside Airbnb has various partners and benefits from the guidance of an advisory board, which helps ensure the sustainability of the project [@zotero-49].
 
 ## 2. Why did they collect it?
 
-IA's mission is to offer data-driven insights and advocacy concerning Airbnb's influence on residential neighborhoods [@zotero-49]. IA aims to empower communities with data, enabling them to make informed decisions and take control of the roles related to short-term rentals. 
+IA's mission is to offer data-driven insights and advocacy concerning Airbnb's influence on residential neighborhoods [@zotero-49]. IA aims to empower communities with data, enabling them to make decisions and take control of the roles related to short-term rentals. 
 
 ## 3. How was the data collected?  
 
-According to a page on IA’s website, the data is collected using python scripts, collecting public data from the Airbnb website. The collected data is verified, cleaned, analyzed and aggregated, and finally published on the IA website. IA will regularly update new data in each location [@Alsudais2021]. 
+According to a page on IA’s website, the data is collected using python, collecting public data from the Airbnb website. The collected data is verified, cleaned, analyzed and aggregated, and finally published on the IA website. IA will regularly update new data in each location [@Alsudais2021]. 
 
 ## 4. How does the method of collection impact the completeness and/or accuracy of its representation of the process it seeks to study, and what wider issues does this raise?
 
 The existing data was incomplete or inaccurate at both the key field and record levels: 
 
-- According to the disclaimer on the IA website, the location information of the listings is anonymized, which means that the accurate location of the listings cannot be obtained, which will lead to accuracy problems in exploring the geographical distribution of the listings. 
-- If the Airbnb platform deletes the listing information, the IA website may not be updated in time, resulting in information deviation. 
+- According to the disclaimer on the IA website, the location information is anonymized, which means that the accurate location cannot be obtained, which will lead to accuracy problems in exploring the geographical distribution of the listings. 
+- If the Airbnb platform deletes the listing information, the IA website may not be updated timely, resulting in information deviation. 
 - IA data does not differentiate between reserved and unavailable rooms, so the unavailable status of a listing may not be accurate. 
 - There are many missing values and values with wrong data types in the records of IA data. 
-- The data collected by IA has obvious erroneous comments and no targeted identification. And this problem may become more serious as data increases. 
+- The data collected by IA has obvious erroneous comments and no targeted identification. This problem may become more serious as data increases. 
 
 ## 5. What ethical considerations does the use of this data raise? 
-
-All data is downloaded from official websites rather than being conducted by the team, so all data sources are annotated in detail, and specific information about the data is clearly visible on the respective websites. 
 
 - For transparency and accountability, all data is downloaded from official websites rather than being conducted by the team, so all data sources are annotated in detail, and specific information about the data is clearly visible on the respective websites. 
 - For data storage and legal compliance, the team used onedrive for inter-team data sharing and storage, preventing unauthorised access and data leakage, which effectively facilitates the process of data handling within the team.
