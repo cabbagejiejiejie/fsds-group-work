@@ -1,0 +1,802 @@
+---
+bibliography: CASA0013_Group_work.bib
+csl: harvard-cite-them-right.csl
+title: NINE's Group Project
+execute:
+  echo: false
+  freeze: true
+format:
+  html:
+    theme:
+      - minty
+      - css/web.scss
+    code-copy: true
+    code-link: true
+    toc: true
+    toc-title: On this page
+    toc-depth: 2
+    toc_float:
+      collapsed: false
+      smooth_scroll: true
+  pdf:
+    include-in-header:
+      text: |
+        \addtokomafont{disposition}{\rmfamily}
+    mainfont: Spectral
+    sansfont: Roboto
+    monofont: JetBrainsMono-Regular
+    papersize: a4
+    geometry:
+      - top=25mm
+      - left=35mm
+      - right=35mm
+      - bottom=25mm
+      - heightrounded
+    toc: false
+    number-sections: false
+    colorlinks: true
+    highlight-style: github
+jupyter:
+  jupytext:
+    text_representation:
+      extension: .qmd
+      format_name: quarto
+      format_version: '1.0'
+      jupytext_version: 1.15.2
+  kernelspec:
+    display_name: Python 3 (ipykernel)
+    language: python
+    name: python3
+---
+
+## Declaration of Authorship {.unnumbered .unlisted}
+
+We, [ NINE ], confirm that the work presented in this assessment is our own. Where information has been derived from other sources, we confirm that this has been indicated in the work. Where a Large Language Model such as ChatGPT has been used we confirm that we have made its contribution to the final submission clear.
+
+Date: 17/12/2023
+
+Student Numbers: 23058546 ; 23041172 ; 23121285 ; 23076041 ; 23096668
+
+## Brief Group Reflection
+
+What Went Well:
+
+- Effective communication and collaboration: Team members trust each other, communicate efficiently, and assist one another.
+- Excellent time management: Team members systematically advance project progress, plan time wisely, and complete all project requirements ahead of schedule.
+- Innovation: Building upon acquired knowledge, daring to break boundaries, utilizing panel data, and conducting comprehensive analyses with additional data integration.
+
+What Was Challenging:
+
+- Team code integration: To ensure the efficient functioning of code from various sections, use GitHub to integrate different parts.
+- Multidimensional data integration: Integrating and presenting data across multiple years and entities.
+
+```{python}
+# The following code will automatically download the BibTex file and CSL file and save them in the same directory as the qmd file.
+# The name of the BibTex file is CASA0013_Group_work.bib, and the name of the CSL file is ucl-institute-of-education-harvard.csl
+# When the download is successful, there will be a prompt output. When the output displays "Done.", it means the download has been completed.
+```
+
+```{python}
+import os
+from requests import get
+from urllib.parse import urlparse
+
+def cache_data(src:str, dest:str) -> str:
+    """Downloads and caches a remote file locally.
+    
+    The function sits between the 'read' step of a pandas or geopandas
+    data frame and downloading the file from a remote location. The idea
+    is that it will save it locally so that you don't need to remember to
+    do so yourself. Subsequent re-reads of the file will return instantly
+    rather than downloading the entire file for a second or n-th itme.
+
+    We've built in some basic logic around looking at the extension of the 
+    destination file and converting it accordingly *once* it is downloaded.
+    
+    Parameters
+    ----------
+    src : str
+        The remote *source* for the file, any valid URL should work.
+    dest : str
+        The *destination* location to save the downloaded file.
+        
+    Returns
+    -------
+    str
+        A string representing the local location of the file.
+    """
+    
+    url = urlparse(src) # We assume that this is some kind of valid URL 
+    fn  = os.path.split(url.path)[-1] # Extract the filename
+    dfn = os.path.join(dest,fn) # Destination filename
+    
+    if not os.path.isfile(dfn):
+        
+        print(f"{dfn} not found, downloading!")
+
+        path = os.path.split(dest)
+        
+        if len(path) >= 1 and path[0] != '':
+            os.makedirs(os.path.join(*path), exist_ok=True)
+            
+        with open(dfn, "wb") as file:
+            response = get(src)
+            file.write(response.content)
+            
+        print("\tDone downloading...")
+
+    else:
+        print(f"Found {dfn} locally!")
+
+    return dfn
+```
+
+```{python}
+ddir  = os.path.join('')
+csl_path = 'https://github.com/cabbagejiejiejie/fsds-group-work/blob/main/final_paper/harvard-cite-them-right.csl'
+bib_path = 'https://github.com/cabbagejiejiejie/fsds-group-work/blob/main/final_paper/CASA0013_Group_work.bib'
+
+cache_data(csl_path+'?raw=true', ddir)
+cache_data(bib_path+'?raw=true', ddir)
+
+print('Done.')
+```
+
+## Priorities for Feedback
+
+Are there any areas on which you would appreciate more detailed feedback if we're able to offer it?
+
+```{=html}
+<style type="text/css">
+.duedate {
+  border: dotted 2px red; 
+  background-color: rgb(255, 235, 235);
+  height: 50px;
+  line-height: 50px;
+  margin-left: 40px;
+  margin-right: 40px
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: rgb(150,100,100);
+  text-align: center;
+}
+</style>
+```
+
+{{< pagebreak >}}
+
+# Response to Questions
+
+## 1. Who collected the data?
+
+Inside Airbnb (IA) is a website founded by Murray Cox. It provides direct access to data gathered from Airbnb's website. Inside Airbnb has various partners and benefits from the guidance of an advisory board, which helps ensure the sustainability of the project [@zotero-49].
+
+## 2. Why did they collect it?
+
+IA's mission is to offer data-driven insights and advocacy concerning Airbnb's influence on residential neighborhoods [@zotero-49]. IA aims to empower communities with data, enabling them to make informed decisions and take control of the roles related to short-term rentals. 
+
+## 3. How was the data collected?  
+
+According to a page on IA’s website, the data is collected using python scripts, collecting public data from the Airbnb website. The collected data is verified, cleaned, analyzed and aggregated, and finally published on the IA website. IA will regularly update new data in each location [@Alsudais2021]. 
+
+## 4. How does the method of collection impact the completeness and/or accuracy of its representation of the process it seeks to study, and what wider issues does this raise?
+
+The existing data was incomplete or inaccurate at both the key field and record levels: 
+
+- According to the disclaimer on the IA website, the location information of the listings is anonymized, which means that the accurate location of the listings cannot be obtained, which will lead to accuracy problems in exploring the geographical distribution of the listings. 
+- If the Airbnb platform deletes the listing information, the IA website may not be updated in time, resulting in information deviation. 
+- IA data does not differentiate between reserved and unavailable rooms, so the unavailable status of a listing may not be accurate. 
+- There are many missing values and values with wrong data types in the records of IA data. 
+- The data collected by IA has obvious erroneous comments and no targeted identification. And this problem may become more serious as data increases. 
+
+## 5. What ethical considerations does the use of this data raise? 
+
+All data is downloaded from official websites rather than being conducted by the team, so all data sources are annotated in detail, and specific information about the data is clearly visible on the respective websites. 
+
+- For transparency and accountability, all data is downloaded from official websites rather than being conducted by the team, so all data sources are annotated in detail, and specific information about the data is clearly visible on the respective websites. 
+- For data storage and legal compliance, the team used onedrive for inter-team data sharing and storage, preventing unauthorised access and data leakage, which effectively facilitates the process of data handling within the team.
+- For avoiding bias and discrimination, the team collect data from credible official websites and process the data in a way that is objective, comprehensive and fair, taking into account the specific data of each borough in London. 
+- For data accuracy, some limitations may exist in this data analysis. Since the rental prices were selected using a sampling method to calculate the average price, it cannot reflect the actual price comprehensively and realistically. Since the data came from two different websites, only five consecutive years of data could be collected, and the time-series limitation would affect the accuracy of future price prediction. In addition, the data included contains data from the covid-19 period, and sudden epidemic disasters may also have some effects on prices that exceed the rules of the market, affecting the analyses and judgements. 
+
+```{python}
+# The following code starts to read data and organize the data
+```
+
+```{python}
+try:
+    import linearmodels
+except ModuleNotFoundError:
+    ! pip install linearmodels
+    import linearmodels
+```
+
+```{python}
+try:
+    import plottable
+except ModuleNotFoundError:
+    ! pip install plottable
+    import plottable
+```
+
+```{python}
+import os
+import numpy as np
+import pandas as pd
+import geopandas as gpd
+import matplotlib.pyplot as plt
+from matplotlib.colors import LinearSegmentedColormap
+from shapely.geometry import Point
+from scipy import stats
+from scipy.stats import gaussian_kde
+import contextily as ctx
+import matplotlib.gridspec as gridspec
+import matplotlib.colors
+from mpl_toolkits.axes_grid1 import make_axes_locatable
+import statsmodels.api as sm
+from linearmodels import RandomEffects
+from sklearn.preprocessing import MinMaxScaler
+from plottable import Table
+import warnings
+
+warnings.filterwarnings("ignore")
+```
+
+```{python}
+# set year list
+year_list = ['2019', '2020', '2021', '2022', '2023']
+
+# original file
+url = ["https://github.com/cabbagejiejiejie/fsds-group-work/blob/main/data/drop_cols_listings-2019.csv?raw=true",
+       "https://github.com/cabbagejiejiejie/fsds-group-work/blob/main/data/drop_cols_listings-2020.csv?raw=true",
+       "https://github.com/cabbagejiejiejie/fsds-group-work/blob/main/data/drop_cols_listings-2021.csv?raw=true",
+       "https://github.com/cabbagejiejiejie/fsds-group-work/blob/main/data/drop_cols_listings-2022.csv?raw=true",
+       "https://github.com/cabbagejiejiejie/fsds-group-work/blob/main/data/drop_cols_listings-2023.csv?raw=true"]
+
+# read in original airbnb data
+df_2019 = pd.read_csv(url[0], low_memory=False)
+df_2020 = pd.read_csv(url[1], low_memory=False)
+df_2021 = pd.read_csv(url[2], low_memory=False)
+df_2022 = pd.read_csv(url[3], low_memory=False)
+df_2023 = pd.read_csv(url[4], low_memory=False)
+```
+
+```{python}
+# plot room type
+
+# set data frame of room type in 2023
+df_room_type_2023 = df_2023
+
+# transform df_room_type to gpd
+gdf_room_type = gpd.GeoDataFrame(df_room_type_2023, 
+      geometry=gpd.points_from_xy(df_room_type_2023.longitude, df_room_type_2023.latitude, crs='epsg:4326'))
+
+# transform crs of gdf_room_type from 4326 to 27700
+gdf_room_type = gdf_room_type.to_crs(27700)
+
+# read in London Borough Green Water
+london_borough_path = 'https://github.com/cabbagejiejiejie/fsds-group-work/blob/main/data/London-borough/Boroughs.gpkg?raw=true'
+london_water_path = 'https://github.com/cabbagejiejiejie/fsds-group-work/blob/main/data/London-borough/Water.gpkg?raw=true'
+london_green_path = 'https://github.com/cabbagejiejiejie/fsds-group-work/blob/main/data/London-borough/Greenspace.gpkg?raw=true'
+
+boros = gpd.read_file(london_borough_path)
+water = gpd.read_file(london_water_path)
+green = gpd.read_file(london_green_path)
+
+# merge room type data of 5 years into one data frame
+# 2023
+df_room_type_2023 = df_2023
+df_room_type_counts_2023 = df_room_type_2023['room_type'].value_counts().reset_index()
+df_room_type_counts_2023['year'] = 2023
+df_room_type_counts_2023['index'] = [0, 2, 3, 1]
+df_room_type_counts_2023.set_index('index', inplace=True)
+df_room_type_counts_2023 = df_room_type_counts_2023.sort_index()
+
+# 2022
+df_room_type_2022 = df_2022
+df_room_type_counts_2022 = df_room_type_2022['room_type'].value_counts().reset_index()
+df_room_type_counts_2022['year'] = 2022
+df_room_type_counts_2022['index'] = [0, 2, 3, 1]
+df_room_type_counts_2022.set_index('index', inplace=True)
+df_room_type_counts_2022 = df_room_type_counts_2022.sort_index()
+
+# 2021
+df_room_type_2021 = df_2021
+df_room_type_counts_2021 = df_room_type_2021['room_type'].value_counts().reset_index()
+df_room_type_counts_2021['year'] = 2021
+df_room_type_counts_2021['index'] = [0, 2, 3, 1]
+df_room_type_counts_2021.set_index('index', inplace=True)
+df_room_type_counts_2021 = df_room_type_counts_2021.sort_index()
+
+# 2020
+df_room_type_2020 = df_2020
+df_room_type_counts_2020 = df_room_type_2020['room_type'].value_counts().reset_index()
+df_room_type_counts_2020['year'] = 2020
+df_room_type_counts_2020['index'] = [0, 2, 3, 1]
+df_room_type_counts_2020.set_index('index', inplace=True)
+df_room_type_counts_2020 = df_room_type_counts_2020.sort_index()
+
+# 2019
+df_room_type_2019 = df_2019
+df_room_type_counts_2019 = df_room_type_2019['room_type'].value_counts().reset_index()
+df_room_type_counts_2019['year'] = 2019
+df_room_type_counts_2019 = df_room_type_counts_2019.drop(df_room_type_counts_2019.index[-1])
+df_room_type_counts_2019['index'] = [0, 2, 1, 3]
+df_room_type_counts_2019.set_index('index', inplace=True)
+df_room_type_counts_2019 = df_room_type_counts_2019.sort_index()
+
+# merge five years into one data frame
+df_room_type_counts = pd.DataFrame()
+
+for i in [df_room_type_counts_2019, df_room_type_counts_2020, df_room_type_counts_2021,
+         df_room_type_counts_2022, df_room_type_counts_2023]:
+    df_room_type_counts = pd.concat([df_room_type_counts, i], ignore_index=True)
+```
+
+## 6. With reference to the data (*i.e.* using numbers, figures, maps, and descriptive statistics), what does an analysis of Hosts and Listing types suggest about the nature of Airbnb lets in London? 
+
+```{python}
+# The following is a diagram drawing Room Type Information of Airbnb
+```
+
+```{python}
+# set figure size
+fig = plt.figure(figsize=(18, 18))
+
+gs = gridspec.GridSpec(2, 1, height_ratios=[3, 1])
+
+ax1 = plt.subplot(gs[0])
+ax2 = plt.subplot(gs[1])
+
+green.plot(edgecolor=(0.7, 0.7, 0.14, 0.25), facecolor=(0.7, 0.7, 0.14, 0.25), zorder=1, ax=ax1)
+water.plot(edgecolor="none", facecolor=(0, 0.8, 1, 0.25), zorder=2, ax=ax1)
+boros.plot(edgecolor=(0, 0, 0, 0.5), facecolor='none', linewidth=2, zorder=3, ax=ax1)
+
+ax1.set_xlim([525000,540000])
+ax1.set_ylim([176000,186000])
+
+# ax.axis('off') # Don't plot the axes
+
+gdf_room_type.plot(marker='*', markersize=20, column='room_type', cmap='Dark2', 
+         legend=True, alpha = 0.8, ax = ax1)
+ax1.set_title("(a) Room Type for Airbnb Listings in 2023 (Central London Detail)", fontsize = 24)
+
+# grouping the data of df_room_type_counts
+grouped = df_room_type_counts.groupby(['year', 'room_type']).sum().unstack()
+
+# bar plot
+colors = {"Entire home/apt": (0.28, 0.68, 0.55, 1), "Hotel room": (0.56, 0.55, 0.76, 1),
+          "Private room": (0.92, 0.74, 0.21, 1), "Shared room": (0.51, 0.51, 0.51, 1)}
+grouped.plot(kind='bar', color=[colors[name] for name in grouped.columns.levels[1]], ax=ax2)
+
+# add title and label
+ax2.set_title("(b) Room Type Count by Year", fontsize = 24)
+ax2.set_xlabel("Year", fontsize = 18)
+ax2.set_ylabel("Count", fontsize = 18)
+ax2.legend([name for name in grouped.columns.levels[1]])
+
+fig.suptitle('Figure 1: Room Type Information of Airbnb', fontsize = 24)
+plt.subplots_adjust(top=0.95, hspace=0.1)
+```
+
+The Figure 1(b) illustrates the growth of Airbnb listings in London from 2019 to 2023, with Figure 1(a) showing the predominance of "Entire home/apt" types, clustered north of the Thames. Airbnb registrations initially declined but then rebound sharply, peaking at 80,000 rooms in 2023. 
+
+Shabrina states London landlords can own up to two properties for 180-day rentals each year [@Shabrina2022]. Exceeding this is deemed Airbnb abuse. In 2020, compliant and abusive landlords were nearly equal at around 34,000. By 2023, abusive landlords nearly doubled to 59,608, dwarfing the 27,966 compliant ones. 
+
+We explore why this trend arises. Driven by increasing market demand and financial gains, short-term rentals often yield higher profits than long-term leases, tempting landlords to bypass regulations to maximize market opportunities.
+
+Despite clear regulations, enforcement challenges persist. Landlords may either circumvent the rules or unknowingly breach them due to lack of awareness or understanding. A survey reveals that 86% of landlords claim to proactively seek knowledge about relevant regulations. This suggests that while some are informed, compliance isn't always adhered to, with a few even finding loopholes [@Hubscher2023].
+
+Furthermore, Airbnb implemented a 90-day annual booking cap in 2017 for unmanaged listings [@Dolnicar2021]. London's regulatory framework has seen little alteration since [@Dolnicar2021]. This stagnation might stem from regulatory bodies' resource limitations in enforcement or delays in updating landlords about policy changes [@Shabrina2019].
+
+## 7. Drawing on your previous answers, and supporting your response with evidence (e.g. figures, maps, and statistical analysis/models), how *could* this data set be used to inform the regulation of Short-Term Lets (STL) in London? 
+
+As international students, the team members have experienced the increasing cost of renting houses in London, making it harder to rent suitable property. Concerning the growing Airbnb market, we wanted to explore the impact of Airbnb on the long-term rental market. After extensive literature reading, the team members found that the rent of long-term rentals in the UK increases with the number of Airbnb listings [@Barron2019]. It's comprehensible that Airbnb as a short-term rental would impact the same short-term rental industry as the hotel industry, but why would it also affect long-term rentals with a different audience? A phenomenon in Berlin answered the team members' questions. The housing stock in the city will not change drastically in the short timeframe. Still, many platforms and landlords are transforming redundant housing that were initially put on the long-term rental market into short-term rentals by placing them on Airbnb for a higher profit. This behavior has led to an increase in the number of Airbnb listings and a decrease in the number of long-term rentals, which led to a reduction in the supply of long-term rentals and an increase in long-term rentals [@Barron2021]. Airbnb impacts the long-term rental market in different cities worldwide, especially in some tourist cities [@Neeser2015a]. In this context, we want to explore whether Airbnb similarly impacts long-term rentals in the London area qualitatively and quantitatively. Accordingly, we set out to answer the following 4 questions: 
+
+- The effect of London.Airbnb's listing density on long-term rental rents.
+- The effect of London Airbnb's price on long-term rental rents.
+- The effect of the increase in the price of Airbnb in different regions on the rise in the rent of long-term rental properties?
+- The effect of the rise of Airbnb density in different regions on the rise of long-stay rents.
+
+The findings in this report are based on a rigorous analysis of the period 2020-2023, focusing on London boroughs. Except the IA's data, we downloaded average monthly rents for long-term rentals in each borough of London from the office for national statistics website. We processed more than 400,000 pieces of Airbnb data and nearly 10,000 pieces of sampled data of long-term rentals in each London borough and cleaned, screened, filtered, grouped, type-converted, consolidated, and computed all the data using the tools pandas and numpy. Rents were calculated using the following formulae: 
+
+$$
+Y_{ict} = \alpha + \beta\ \text{Density}_{ict} + \gamma\ \text{Price}_{ict} + \varepsilon_{ict}
+$$
+
+### Visualization of key components: 
+
+The visualization provides an intuitive view of the distribution patterns for Airbnb listings and long-term rental prices. 
+
+Figure 2(a) shows that the kernel density of Airbnb listings increases as one approaches the center of London. The detailed area density graph, Figure 2(b), also shows that the distribution of Airbnb generally follows a pattern of increased density in areas closer to the center of London, with the borough of Kensington and Chelsea having the highest Airbnb density, followed by the borough of Westminster. From Figure 2(c), the Airbnb price also roughly correlates with the density distribution, with the highest prices found in the borough of Kensington and Chelsea, followed by the borough of Westminster. However, Airbnb prices are not strictly and entirely determined by density. For instance, the third highest-priced borough is Barking and Dagenham, which may be associated with other factors such as national urban regeneration policies [@Shand2012]. Surprisingly, a similar trend was observed in long-term rentals and Airbnb density distribution, as seen in Figure 2(d). The highest-priced boroughs are Kensington and Chelsea, followed by Westminster. After visualizing this, the team used panel data to demonstrate the further relationship between the two. 
+
+```{python}
+# Calculate kernel density
+```
+
+```{python}
+# load airbnb
+df_airbnb_KDE = df_2023
+
+# Add a column of geometry based on latitude and longitude
+df_airbnb_KDE['geometry'] = df_airbnb_KDE.apply(lambda x: Point((float(x.longitude), float(x.latitude))), axis=1)
+
+# Converting df_airbnb_KDE to geopanda files
+gdf_airbnb_KDE = gpd.GeoDataFrame(df_airbnb_KDE, geometry='geometry', crs = 'EPSG:4326')
+
+# converting GeoDataFrames and London boroughs to Web Mercator Projections
+gdf_airbnb_KDE = gdf_airbnb_KDE.to_crs(epsg=3857)
+boros = boros.to_crs(epsg=3857)
+
+# calculate KDE
+longitude = gdf_airbnb_KDE.geometry.x
+latitude = gdf_airbnb_KDE.geometry.y
+
+xy = np.vstack([longitude, latitude])
+kde = gaussian_kde(xy, bw_method= 'silverman') # bw_method='scott' bw_method='silverman' bw_method=0.1
+
+grid_x, grid_y = np.mgrid[longitude.min():longitude.max():200j, latitude.min():latitude.max():200j]
+grid_coords = np.vstack([grid_x.ravel(), grid_y.ravel()])
+z = kde(grid_coords).reshape(grid_x.shape)
+```
+
+```{python}
+# Prepare data, organize data, and draw airbnb distributions and variables demonstration diagrams
+```
+
+```{python}
+# set empty data frame to store airbnb data
+df_airbnb_borough_2019 = pd.DataFrame()
+df_airbnb_borough_2020 = pd.DataFrame()
+df_airbnb_borough_2021 = pd.DataFrame()
+df_airbnb_borough_2022 = pd.DataFrame()
+df_airbnb_borough_2023 = pd.DataFrame()
+
+list_of_airbnb_df = [df_airbnb_borough_2019, df_airbnb_borough_2020, df_airbnb_borough_2021,
+                    df_airbnb_borough_2022, df_airbnb_borough_2023]
+
+
+gdf = boros
+# Calculate the area of each area (in square metres)
+gdf['borough_area'] = gdf.geometry.area
+
+gdf_1 = gdf[['NAME', 'borough_area']]
+
+# data celaning, prepare panel data
+for year in range(0, len(year_list)):
+    df = pd.read_csv(url[year], low_memory=False) # compression='gzip'
+    
+    if year_list[year] == '2019':
+    
+        df = df[df['availability_365'] != ' ']
+        df['availability_365'].astype(int)
+        df = df[df['availability_365'] != 0]
+        
+        df.drop(df[df['price'] == ' '].index, inplace=True)
+        df['price'] = df['price'].astype('float')
+        
+        df_new = df.groupby('neighbourhood').agg({'neighbourhood': 'count', 'price': 'mean'}).rename(columns={'neighbourhood': 'region'})
+        df_new.reset_index(inplace=True)
+        df_new.columns = ['borough', 'count_airbnb', 'price_airbnb']
+        
+        df_new['year'] = year_list[year]
+
+        merged_df = pd.merge(df_new, gdf_1, left_on='borough', right_on='NAME', how='left')
+        #merged_df.head()
+        merged_df = merged_df.drop('NAME', axis=1)
+
+        merged_df['density_airbnb'] = merged_df['count_airbnb'] / merged_df['borough_area'] * 100000
+        #merged_df.head()
+        merged_df['code'] = pd.factorize(merged_df['borough'])[0] + 1
+        #merged_df.head()
+    
+    else:
+        
+        df = df[df['has_availability'] != 'f']
+
+        df.drop(df[df['price'] == ' '].index, inplace=True)
+        df['price'] = df['price'].str.replace('$','', regex=False).str.replace(',','', regex=False).astype('float')
+        
+        df_new = df.groupby('neighbourhood_cleansed').agg({'neighbourhood_cleansed': 'count', 'price': 'mean'}).rename(columns={'neighbourhood_cleansed': 'region'})
+        df_new.reset_index(inplace=True)
+        df_new.columns = ['borough', 'count_airbnb', 'price_airbnb']
+        
+        df_new['year'] = year_list[year]
+
+        merged_df = pd.merge(df_new, gdf_1, left_on='borough', right_on='NAME', how='left')
+        #merged_df.head()
+        merged_df = merged_df.drop('NAME', axis=1)
+
+        merged_df['density_airbnb'] = merged_df['count_airbnb'] / merged_df['borough_area'] * 100000
+        #merged_df.head()
+        merged_df['code'] = pd.factorize(merged_df['borough'])[0] + 1
+        #merged_df.head()
+    
+    list_of_airbnb_df[year] = merged_df
+
+df_airbnb_borough_2019 = list_of_airbnb_df[0]
+df_airbnb_borough_2020 = list_of_airbnb_df[1]
+df_airbnb_borough_2021 = list_of_airbnb_df[2]
+df_airbnb_borough_2022 = list_of_airbnb_df[3]
+df_airbnb_borough_2023 = list_of_airbnb_df[4]
+
+
+# Merge airbnb data
+df_airbnb_borough = pd.DataFrame()
+
+for i in [df_airbnb_borough_2019, df_airbnb_borough_2020, df_airbnb_borough_2021,
+         df_airbnb_borough_2022, df_airbnb_borough_2023]:
+    df_airbnb_borough = pd.concat([df_airbnb_borough, i], ignore_index=True)
+
+
+# set empty data frame to store rental data
+df_rental_borough_2019 = pd.DataFrame()
+df_rental_borough_2020 = pd.DataFrame()
+df_rental_borough_2021 = pd.DataFrame()
+df_rental_borough_2022 = pd.DataFrame()
+df_rental_borough_2023 = pd.DataFrame()
+
+sheet_name = 'Table 1.2'
+
+list_of_rental_df = [df_rental_borough_2019, df_rental_borough_2020, df_rental_borough_2021,
+                    df_rental_borough_2022, df_rental_borough_2023]
+
+# wrangling rental data
+url_rental = ["https://github.com/cabbagejiejiejie/fsds-group-work/blob/main/data/london_rental_2019.xls?raw=true",
+       "https://github.com/cabbagejiejiejie/fsds-group-work/blob/main/data/london_rental_2020.xls?raw=true",
+       "https://github.com/cabbagejiejiejie/fsds-group-work/blob/main/data/london_rental_2021.xls?raw=true",
+       "https://github.com/cabbagejiejiejie/fsds-group-work/blob/main/data/london_rental_2022.xls?raw=true",
+       "https://github.com/cabbagejiejiejie/fsds-group-work/blob/main/data/london_rental_2023.xls?raw=true"]
+
+# data celaning, prepare rental data
+for year in range(0, len(year_list)):
+    
+    # Read specific worksheet in Excel file
+    data = pd.read_excel(url_rental[year], sheet_name=sheet_name,skiprows=12,header=0)
+    specific_data = data.iloc[:198, 1:5]
+    # Select data
+    data_select = specific_data[['Borough','Count of rents','Mean']]
+    data_select.rename(columns={'Count of rents': 'count_long_rents'}, inplace=True)
+    # Convert data to numeric type and remove data that cannot be converted
+    for i in ['count_long_rents','Mean'] :
+        data_select[i] = pd.to_numeric(data_select[i], errors='coerce')
+        data_select = data_select.dropna(subset=[i])
+     
+    data_select['count_long_rents']= data_select['count_long_rents'].astype(int)
+    
+    data_select['TotalPrice'] = data_select['count_long_rents'] * data_select['Mean']
+    
+    sum_by_borough = data_select.groupby('Borough').sum()
+    
+    sum_by_borough['price_long_rents'] = sum_by_borough['TotalPrice'] / sum_by_borough['count_long_rents']
+    sum_by_borough['Year'] = year_list[year]
+    sum_by_borough['Area'] = sum_by_borough.index
+
+    list_of_rental_df[year] = sum_by_borough
+
+df_rental_borough_2019 = list_of_rental_df[0]
+df_rental_borough_2020 = list_of_rental_df[1]
+df_rental_borough_2021 = list_of_rental_df[2]
+df_rental_borough_2022 = list_of_rental_df[3]
+df_rental_borough_2023 = list_of_rental_df[4]
+
+
+# Merge rental data
+df_rental_borough = pd.DataFrame()
+
+for i in [df_rental_borough_2019, df_rental_borough_2020, df_rental_borough_2021,
+         df_rental_borough_2022, df_rental_borough_2023]:
+    df_rental_borough = pd.concat([df_rental_borough, i], ignore_index=True)
+
+
+df_1 = df_airbnb_borough
+df_2 = df_rental_borough
+
+merged_airbnb_rental = pd.merge(df_1, df_2, left_on=['borough', 'year'], right_on=['Area', 'Year'], how='left')
+
+merged_airbnb_rental = merged_airbnb_rental.drop(['Mean', 'TotalPrice', 'Year', 'Area'], axis = 1)
+
+# Screening 2023 data
+df_merged_2023 = merged_airbnb_rental[merged_airbnb_rental['year'] == '2023']
+
+# set London borough
+gdf_london_borough_plot = boros
+
+# join merged_airbnb_rental with london borough
+merged_gdf_2023 = gdf_london_borough_plot.set_index('NAME').join(df_merged_2023.set_index('borough'), how='inner', lsuffix='_left', rsuffix='_right').reset_index()
+
+
+
+# prepare for KDE
+# load airbnb
+df_airbnb_KDE = df_2023
+
+# Add a column of geometry based on latitude and longitude
+df_airbnb_KDE['geometry'] = df_airbnb_KDE.apply(lambda x: Point((float(x.longitude), float(x.latitude))), axis=1)
+
+# Converting df_airbnb_KDE to geopanda files
+gdf_airbnb_KDE = gpd.GeoDataFrame(df_airbnb_KDE, geometry='geometry', crs = 'EPSG:4326')
+
+# converting GeoDataFrames and London boroughs to Web Mercator Projections
+gdf_airbnb_KDE = gdf_airbnb_KDE.to_crs(epsg=3857)
+boros = boros.to_crs(epsg=3857)
+
+# calculate KDE
+longitude = gdf_airbnb_KDE.geometry.x
+latitude = gdf_airbnb_KDE.geometry.y
+
+xy = np.vstack([longitude, latitude])
+kde = gaussian_kde(xy, bw_method= 'silverman') # bw_method='scott' bw_method='silverman' bw_method=0.1
+
+grid_x, grid_y = np.mgrid[longitude.min():longitude.max():200j, latitude.min():latitude.max():200j]
+grid_coords = np.vstack([grid_x.ravel(), grid_y.ravel()])
+z = kde(grid_coords).reshape(grid_x.shape)
+
+# plot
+# Screening 2023 data
+df_merged_2023 = merged_airbnb_rental[merged_airbnb_rental['year'] == '2023']
+
+# set London borough
+gdf_london_borough_plot = boros
+
+# join merged_airbnb_rental with london borough
+merged_gdf_2023 = gdf_london_borough_plot.set_index('NAME').join(df_merged_2023.set_index('borough'), how='inner', lsuffix='_left', rsuffix='_right').reset_index()
+
+colormap = 'Reds'
+
+# Create four subgraphs
+fig, ax = plt.subplots(2, 2, figsize=(18, 14.4))
+
+# plot KDE
+# plot London borough
+boros.plot(ax=ax[0,0], color='none', edgecolor='black', zorder=2)
+
+# plot kernel density layers
+cf = ax[0,0].contourf(grid_x, grid_y, z, levels=100, cmap=plt.cm.hot_r, alpha=0.6, zorder=3)
+
+# plot OpenStreetMap 
+ctx.add_basemap(ax[0,0], source=ctx.providers.OpenStreetMap.Mapnik, zorder=1)
+
+# adjusting the axes to fit the drawing
+ax[0,0].set_xlim(longitude.min(), longitude.max())
+ax[0,0].set_ylim(latitude.min(), latitude.max())
+
+# add a colour bar
+cbar = plt.colorbar(cf, ax=ax[0,0], orientation='vertical', fraction=0.036, pad=0.04)
+cbar.set_label('Density', fontsize = 14)
+
+# set x,y axis
+ax[0,0].set_xlabel('Easting (m)', fontsize = 14)
+ax[0,0].set_ylabel('Northing (m)', fontsize = 14)
+
+# set title
+ax[0,0].set_title('(a) Airbnb Heatmap in London', fontsize = 18)
+
+
+merged_gdf_2023.plot(column='density_airbnb', cmap=colormap, linewidth=0.8, ax=ax[0,1], edgecolor='0.8')
+ax[0,1].set_title('(b) Density of Airbnb', fontsize = 18)
+vmin = merged_gdf_2023['density_airbnb'].min()
+vmax = merged_gdf_2023['density_airbnb'].max()
+norm = matplotlib.colors.Normalize(vmin=vmin, vmax=vmax)
+sm = plt.cm.ScalarMappable(cmap=colormap, norm=norm)
+sm._A = []
+cbar = plt.colorbar(sm, ax=ax[0,1], orientation='vertical', fraction=0.036, pad=0.04)
+cbar.set_label('Density', fontsize = 14)
+
+
+merged_gdf_2023.plot(column='price_airbnb', cmap=colormap, linewidth=0.8, ax=ax[1,0], edgecolor='0.8')
+ax[1,0].set_title('(c) Price of Airbnb', fontsize = 18)
+vmin = merged_gdf_2023['price_airbnb'].min()
+vmax = merged_gdf_2023['price_airbnb'].max()
+norm = matplotlib.colors.Normalize(vmin=vmin, vmax=vmax)
+sm = plt.cm.ScalarMappable(cmap=colormap, norm=norm)
+sm._A = []
+cbar = plt.colorbar(sm, ax=ax[1,0], orientation='vertical', fraction=0.036, pad=0.04)
+cbar.set_label('Price', fontsize = 14)
+
+
+merged_gdf_2023.plot(column='price_long_rents', cmap=colormap, linewidth=0.8, ax=ax[1,1], edgecolor='0.8')
+ax[1,1].set_title('(d) Price of Long Rents', fontsize = 18)
+vmin = merged_gdf_2023['price_long_rents'].min()
+vmax = merged_gdf_2023['price_long_rents'].max()
+norm = matplotlib.colors.Normalize(vmin=vmin, vmax=vmax)
+sm = plt.cm.ScalarMappable(cmap=colormap, norm=norm)
+sm._A = []
+cbar = plt.colorbar(sm, ax=ax[1,1], orientation='vertical', fraction=0.036, pad=0.04)
+cbar.set_label('Price', fontsize = 14)
+
+
+fig.suptitle('Figure 2: Airbnb Distributions and Variables Demonstration', fontsize = 24)
+plt.subplots_adjust(top=0.95, hspace=0.05)
+```
+
+Due to the data spanning four continuous years of Airbnb and long-term rentals, the team chose to use panel data for analysis and presentation. Panel data merges time series and cross-sectional data into an efficient three-dimensional data structure. It facilitates the analysis of the evolution over time of three specific attributes of interest across four years. Based on this, the team performed regression calculations using a random effects model. This can be seen in the figure:  
+
+```{python}
+# Analyze panel data and give results
+```
+
+```{python}
+import statsmodels.api as sm
+
+panel_data = merged_airbnb_rental
+
+panel_data[['price_airbnb', 'density_airbnb', 'price_long_rents']] = panel_data[['price_airbnb', 'density_airbnb', 'price_long_rents']].round(3)
+
+panel_data['index_column'] = panel_data.index
+
+panel_data = panel_data.set_index(["year", "code"])
+
+# Selection of independent and dependent variables
+independent_vars = [
+    "price_airbnb",
+    "density_airbnb",
+]
+dependent_var = "price_long_rents"  # Previously calculated composite index
+
+# Preparing the dependent and independent variables for the model
+Y = panel_data[dependent_var]
+X = panel_data[independent_vars]
+
+# Adding a constant term
+X = sm.add_constant(X)
+
+# Constructing a random effects model
+model = RandomEffects(Y, X)
+results = model.fit()
+
+# Extraction factors and statistics
+coefficients_df = pd.DataFrame(results.summary.tables[1])
+coefficients_df.columns = coefficients_df.iloc[0]  # First row as column name
+coefficients_df = coefficients_df.drop(0)          # Delete column name rows
+
+# Extract R-squared values
+r_squared = results.rsquared
+
+# Output the final DataFrame
+coefficients_df
+
+# plot
+fig, ax = plt.subplots(figsize=(18, 6))
+Table(
+    coefficients_df,
+    textprops = {
+        'fontsize': 18,
+        'ha':'center'
+    },
+    col_label_divider = True,
+    footer_divider = True,
+    row_dividers=False 
+)
+ax.set_title('Figure 3: RandomEffects Estimation Outcome', fontsize = 24)
+
+# Add text in the bottom left corner of the figure
+ax.text(0.02, -0.1, 'R-squared: 0.8571',
+        transform=ax.transAxes,  # Use axis coordinates, so (0,0) is bottom left and (1,1) is top right
+        fontsize=18,
+        ha='left',  # Horizontal alignment
+        va='bottom')  # Vertical alignment
+
+plt.show()
+```
+
+The R-squared value of 0.8571 indicates that the model explains about 85.71% of the variance in the dependent variable. The F-statistic of 484.96 is very high, meaning the model is statistically significant. The associated p-value is 0.0000, which is less than 0.05, so we can reject the null hypothesis that all model coefficients are zero. Combined with the actual long-term rental problem analyzed, the random effects model shows that Airbnb price and density have a significant positive effect on long-term rental prices. The high R-squared values indicate that the model fits the data well and that the data structure appears to be balanced with consistent observations across entities and periods. 
+
+The analysis of panel data substantiates our hypothesis. London's Airbnb market is comprised of individual and corporate landlords. The allure of Airbnb's short-term profits has led many traditional landlords to shift properties from long-term to short-term rental markets. This shift has notably increased Airbnb listing density across London. Data from 2020 to 2023 reveals that Airbnb price hikes significantly affect long-term rental prices in high-demand boroughs. For instance, in Kensington and Chelsea, a 1% Airbnb price rise corresponds to a 0.5% increase in long-term rental prices, while in high-demand Islington, the same Airbnb price rise sees a staggering 30.1% increase in long-term rents. This indicates a pronounced demand for long-term rentals in residential areas. As landlords convert long-term rentals to Airbnb listings, the imbalance of supply and demand escalates long-term rental prices. 
+
+Additionally, our findings show that for each new Airbnb listing in London boroughs, long-term rental prices rise by £2, with lower-density boroughs experiencing a greater impact. For example, a 1% rise in Airbnb density leads to a 9.5% price increase for long-term rentals in high-density Kensington and Chelsea, a 32.9% increase in moderate-density Ealing, and a 69.3% increase in low-density Sutton. From extensive research surveys, it can be surmised that areas with higher Airbnb densities are regulated by stricter policies, while areas with lower Airbnb densities are more laxly regulated [@Duso2020]. Despite the same regulations, the laxity of regulation and enforcement has resulted in the price of long-term rentals being disproportionately affected by the increase in the number of Airbnb's, thus resulting in excessive rental growth.
+
+### Suggestions: 
+Based on the above findings, the following four recommendations are made according to the actual situation of London's Airbnb market and long-term rental market: 
+
+1. For the Airbnb platform: Limit the number of listings placed on the Airbnb platform by the same landlord. Crackdown on second-hand landlords acquiring houses in bulk and putting them on Airbnb to make the difference in price. 
+
+2. For the Airbnb platform: Raise the threshold for hosts to register on the Airbnb platform. Restricting every set of in-Airbnb hosts to being the actual house owner—crack down on speculation by second homeowners in the name of companies or individuals. 
+
+3. For government departments: improve regulation. Laxity in regulatory efforts in some regions results in long-term rentals being hit harder by Airbnb in boroughs where the density of Airbnb listings is lower. 
+
+4. For government departments: according to the specificity of each borough, stipulate the number of new Airbnb allowed within a year. For example, residential areas far away from scenic spots should be prioritized to protect the living needs of residents. 
+
+### Limitations: 
+The dataset from 2020 to 2023 encompasses the pandemic period, which significantly disrupted the tourism sector and Airbnb market, thus skewing Airbnb's price and density from typical market trends. The data for long-term rentals were obtained from the official website, yet this data is derived from sampling methods, which means it may not accurately reflect the current state of the long-term rental market. Furthermore, when investigating the impact of Airbnb on long-term rental prices, the multitude of influencing factors, such as inflation, population mobility, and national policies, suggest that the increase in long-term rental prices observed in our study may not be entirely due to the Airbnb market. 
+
+## References
