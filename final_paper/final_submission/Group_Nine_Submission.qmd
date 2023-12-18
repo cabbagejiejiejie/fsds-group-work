@@ -795,4 +795,8 @@ Based on the above findings, the following four recommendations are made accordi
 ### Limitations: 
 The dataset from 2019 to 2023 encompasses the pandemic period, which significantly disrupted the tourism sector and Airbnb market, thus skewing Airbnb's price and density from typical market trends. The data for long-term rentals were obtained from the official website, yet this data is derived from sampling methods, which means it may not accurately reflect the current state of the long-term rental market. Furthermore, when investigating the impact of Airbnb on long-term rental prices, the multitude of influencing factors, such as inflation, population mobility, and national policies, suggest that the increase in long-term rental prices observed in our study may not be entirely due to the Airbnb market. 
 
+### GitHub Link: 
+
+https://github.com/cabbagejiejiejie/fsds-group-work.git
+
 ## References
