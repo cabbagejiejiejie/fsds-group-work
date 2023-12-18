@@ -215,6 +215,14 @@ except ModuleNotFoundError:
 ```
 
 ```{python}
+try:
+    import contextily
+except ModuleNotFoundError:
+    ! pip install contextily
+    import contextily
+```
+
+```{python}
 import os
 import numpy as np
 import pandas as pd
